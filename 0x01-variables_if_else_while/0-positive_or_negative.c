@@ -3,14 +3,14 @@
 /**
  * main - A function to return state of random tpe
  *
- * @n: Random number
- * Description: Generate a random number n and find out 
+ * Description: Generate a random number n and find out
  * if it is signed or unsigned.
- * return: signed or unsigned
- * /
+ * Return: signed or unsigned
+ */
 int main(void)
 {
 	int n;
+
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 	if (n < 0)
