@@ -1,7 +1,9 @@
 #include <stdio.h>
 /**
- * Main - Entry point
- * return - must be 0 (success)
+ * main - Entry point
+ *
+ * Descrition: Printf to print sizes of types
+ * Return: must be 0 always
  */
 int main(void)
 {
