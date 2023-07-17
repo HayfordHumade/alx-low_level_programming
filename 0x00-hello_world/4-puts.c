@@ -1,7 +1,9 @@
 #include <stdio.h>
 /**
- * main - main entry point
- * return - always 0 success
+ * Main - main entry point
+ * 
+ * Description: Using fuction puts to print
+ * Return: always output 0
  */
 int main(void)
 {
