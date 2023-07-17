@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
- * Main - main entry point
- * 
+ * main - It all starts and end here
+ *
  * Description: Using fuction puts to print
  * Return: always output 0
  */
