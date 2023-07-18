@@ -14,6 +14,10 @@ int main(void)
 	{
 		for (y = 1; y <= 9; y++)
 		{
+			if (x == y)
+			{
+				continue;
+			}
 			putchar(48 + x);
 			putchar(48 + y);
 			putchar(',');
