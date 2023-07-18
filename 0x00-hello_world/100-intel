@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc main.c -o main.s
+gcc 100.intel.c -o 100-intel.s
