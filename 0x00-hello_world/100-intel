@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -S -masm=intel main.c -o main.s
+gcc -c -o "$(echo $CFILE | rev | cut -d '.' -f 2 | rev).o" $CFILE
