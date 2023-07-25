@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <main.h>
 /**
  * reset_to_98 - takes pointer to an int
  * @n: this is an integer pointer variable
