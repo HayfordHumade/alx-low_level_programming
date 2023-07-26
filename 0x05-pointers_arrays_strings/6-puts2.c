@@ -23,4 +23,5 @@ void puts2(char *str)
 		character += 2;
 		counter++;
 	}
+	_putchar('\n');
 }
