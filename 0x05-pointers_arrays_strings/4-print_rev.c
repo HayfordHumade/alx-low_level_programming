@@ -1,11 +1,21 @@
 #include <stdio.h>
+#include "main.h"
 /**
- * main - Run it all
+ * print_rev - Print a string in reverse
+ * @s: holds string from source code
  *
- * Description: Something happens in here
- * Return: Always 0.
+ * Description: Prints string in reverse
+ * Return: Returns reversed string
  */
-int main(void)
+void print_rev(char *s)
 {
-	return (0);
+	int counter;
+
+	counter = '\0';
+	while (counter != *s)
+	{
+		_putchar(*(s + counter));
+		counter--;
+	}
+	_putchar('\n');
 }
