@@ -1,11 +1,21 @@
 #include <stdio.h>
+#include "main.h"
 /**
- * main - Run it all
+ * _strlen - return the length of a string
+ * @s: string
  *
- * Description: Something happens in here
- * Return: Always 0.
+ * Description: Output the length of string at address *s
+ * Return: Length of a string
  */
-int main(void)
+int _strlen(char *s)
 {
-	return (0);
+	/* counter refers to length of string */
+	int counter;
+
+	counter = 0;
+	while (*(s + counter) != 0)
+	{
+		counter++;
+	}
+	return (counter);
 }
