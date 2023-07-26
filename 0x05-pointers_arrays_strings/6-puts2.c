@@ -1,11 +1,26 @@
 #include <stdio.h>
+#include "main.h"
+#include <string.h>
 /**
- * main - Run it all
+ * puts2 - Prints every second character from a strin
+ * @str: holds the string
  *
- * Description: Something happens in here
- * Return: Always 0.
+ * Description: Prints every other character
+ * Return: characters
  */
-int main(void)
+void puts2(char *str)
 {
-	return (0);
+	int length;
+	int counter;
+	int character;
+
+	length = strlen(str);
+	counter = 0;
+	character = 0;
+	while (counter <= length)
+	{
+		_putchar(*(str + character));
+		character += 2;
+		counter++;
+	}
 }
