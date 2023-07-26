@@ -1,11 +1,32 @@
 #include <stdio.h>
+#include "main.h"
+#include <string.h>
 /**
- * main - Run it all
+ * puts_half - Prints half of a string
+ * @str: takes string variables
  *
- * Description: Something happens in here
- * Return: Always 0.
+ * Description: Prints only half of a string
+ * Return: A part of a string, half.
  */
-int main(void)
+void puts_half(char *str)
 {
-	return (0);
+	int length;
+	int counter;
+
+	length = strlen(str);
+	if (length % 2 == 1)
+	{
+		for (counter = ((length - 1) / 2); counter <= length; counter++)
+		{
+			_putchar(*(str + counter));
+		}
+	}
+	else
+	{
+		for (counter = (length / 2); counter <= length; counter++)
+		{
+			_putchar(*(str + counter));
+		}
+	}
+	_putchar('\n');
 }
