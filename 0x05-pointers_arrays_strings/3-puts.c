@@ -1,11 +1,21 @@
 #include <stdio.h>
+#include "main.h"
 /**
- * main - Run it all
+ * _puts - print a string
+ * @str: parameter receiving string input from source code
  *
- * Description: Something happens in here
- * Return: Always 0.
+ * Description: This code prints string values using _putchar
+ * Return: Returns string
  */
-int main(void)
+void _puts(char *str)
 {
-	return (0);
+	int counter;
+
+	counter = 0;
+	while (*(str + counter) != 0)
+	{
+		_putchar(*(str + counter));
+		counter++;
+	}
+	_putchar('\n');
 }
