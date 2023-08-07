@@ -15,5 +15,4 @@ void print_alphabet(void)
 		_putchar(counter);
 	}
 	_putchar('\n');
-	return (0);
 }
