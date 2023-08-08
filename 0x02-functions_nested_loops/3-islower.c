@@ -9,10 +9,10 @@
  */
 int _islower(int c)
 {
-	int a-value;
+	int value;
 
-	a-value = (int)c;
-	if (a-value >= 97 || a-value <= 122)
+	value = (int)c;
+	if (value >= 97 || value <= 122)
 	{
 		return (1);
 	}
