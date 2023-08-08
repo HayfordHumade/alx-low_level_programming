@@ -12,7 +12,7 @@ int _islower(int c)
 	int value;
 
 	value = (int)c;
-	if (value >= 97 || value <= 122)
+	if (value >= 97 && value <= 122)
 	{
 		return (1);
 	}
