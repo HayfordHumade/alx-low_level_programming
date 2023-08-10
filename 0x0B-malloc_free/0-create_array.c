@@ -14,7 +14,7 @@ char *create_array(unsigned int size, char c)
 	if (size == 0)
 		return (NULL);
 
-	int counter;
+	unsigned int counter;
 	char *array;
 
 	if (array == NULL)
