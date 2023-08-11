@@ -10,7 +10,7 @@
  */
 void *malloc_checked(unsigned int b)
 {
-	int *memory;
+	void *memory;
 
 	memory = malloc(b);
 	if (memory == NULL)
@@ -18,5 +18,4 @@ void *malloc_checked(unsigned int b)
 		_putchar('98');
 		return (1);
 	}
-	free(memory);
 }
