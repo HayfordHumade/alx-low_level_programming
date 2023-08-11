@@ -15,8 +15,7 @@ void *malloc_checked(unsigned int b)
 	memory = malloc(b);
 	if (memory == NULL)
 	{
-		printf("%d", 98);
+		_putchar('98');
 		return (1);
 	}
-
 }
