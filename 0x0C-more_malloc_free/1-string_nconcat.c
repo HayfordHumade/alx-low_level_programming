@@ -30,12 +30,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		length_s2++;
 		j++;
 	}
-	
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-
 	if (n >= length_s2)
 		s2_concat = length_s2;
 	else
