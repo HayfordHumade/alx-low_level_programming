@@ -34,7 +34,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	if (n >= length_s2)
 		s2_concat = length_s2;
-	else
+	else if (n < length_s2)
 		s2_concat = n;
 
 	total_length = length_s1 + s2_concat + 1;
