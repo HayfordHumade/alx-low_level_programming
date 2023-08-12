@@ -38,14 +38,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s2_concat = length_s2;
 	else
 		s2_concat = n;
-
 	total_length = length_s1 + s2_concat + 1;
 	string = malloc(sizeof(*string) * total_length);
-
 	for (int k = 0; k < length_s1; k++)
-	{
 		string[k] = s1[k];
-	}
 	for (int l = 0; l < s2_concat; l++)
 	{
 		string[length_s1] = s2[l];
