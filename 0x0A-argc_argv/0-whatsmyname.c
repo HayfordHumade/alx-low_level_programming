@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "main.h"
 #include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 /**
  * main - Runtime starts and ends here
  * @argc: Argument count
