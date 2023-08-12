@@ -3,8 +3,8 @@
 #include "main.h"
 /**
  * *string_nconcat - Function concatenates two strings
- * @*s1: first string
- * @*s2: second string
+ * @s1: first string
+ * @s2: second string
  * @n: unsigned integer variable
  *
  * Description: This does something
@@ -37,7 +37,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s2_concat = n;
 
 	total_length = length_s1 + s2_concat;
-	string = malloc((typeof(*string)) * total_length);
+	string = malloc(sizeof(*string) * total_length);
 
 	return (string);
 }
