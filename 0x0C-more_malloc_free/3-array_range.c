@@ -28,6 +28,7 @@ int *array_range(int min, int max)
 		return (NULL);
 
 	tmp = min;
+	/* Assign array[i] with values from min to max] */
 	for (j = 0; j < size; j++)
 	{
 		array[j] = tmp;
