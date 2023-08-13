@@ -9,7 +9,7 @@
  * Description: This function allocates memory for an array
  * Return: NULL
  */
-void *_calloc(unsigned int nmemb, unsigned int size)
+void _calloc(unsigned int nmemb, unsigned int size)
 {
 	void *array;
 	unsigned int i;
