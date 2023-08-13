@@ -19,9 +19,11 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	total_bytes = nmemb * size;
 	if (nmemb == 0 || size == 0)
 		return (NULL);
+	/* Allocate memory of size 'total_bytes' */
 	array = malloc(total_bytes);
 	if (array == NULL)
 		return (NULL);
+	/*Set each byte/memory to zero */
 	for (i = 0; i < total_bytes; i++)
 		array[i] = 0;
 
