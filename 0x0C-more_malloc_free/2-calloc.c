@@ -14,16 +14,18 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *array;
 	unsigned int i = 0;
+	unsigned int l;
 
+	l = nmemb * size;
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 	array = malloc(size * nmemb);
 	if (array == NULL)
 		return (NULL);
-	while (i < (nmemb * size))
+	while (i < l)
 	{
 		array[i] = 0;
-		i++
+		i++;
 	}
 
 	return (array);
