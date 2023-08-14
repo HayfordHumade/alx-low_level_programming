@@ -29,7 +29,8 @@ int mul(int num1, int num2)
 {
 	int multiply;
 
-	if (sizeof(num1) != sizeof(unsigned int) || sizeof(num2) != sizeof(unsigned int))
+	if (sizeof(num1) != sizeof(unsigned int) ||
+			sizeof(num2) != sizeof(unsigned int))
 	{
 		error();
 	}
@@ -39,6 +40,8 @@ int mul(int num1, int num2)
 }
 /**
  * main - Runs everything
+ * @argc: Argument count
+ * @argv: Argument vector
  *
  * Descrition: Uses functions above to compute multiplication
  * Return: Always 0.
