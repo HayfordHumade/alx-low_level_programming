@@ -9,7 +9,7 @@
  * a pointer to the memory
  * Return: Pointer to char allocated memory.
  */
-void array_char(char *string)
+char *array_char(char *string)
 {
 	int string_length, i, memory_size;
 	char *ptr;
@@ -23,7 +23,10 @@ void array_char(char *string)
 	/* Allocates memory/bytes of 'char' * 'number of characters' */
 	ptr = malloc(memory_size);
 	if (ptr == NULL)
+	{
+		free(ptr);
 		return (NULL);
+	}
 	i = 0;
 	while (i < string_length)
 	{
