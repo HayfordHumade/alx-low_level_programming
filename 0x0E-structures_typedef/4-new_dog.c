@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "dog.h"
 /**
- * *newdog - Create new dog with dog_t
+ * new_dog - Create new dog with dog_t
  * @name: Name
  * @age: Age
  * @owner: Owner
@@ -10,16 +10,16 @@
  * Description: Funciton creates a new dog structure using the typedef 'dog_t'
  * Return: nothing.
  */
-dog_t *newdog(char *name, float age, char *owner)
+dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_dog;
+	dog_t *newdog;
 
-	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
+	newdog = malloc(sizeof(dog_t));
+	if (newdog == NULL)
 		return (NULL);
-	new_dog->name = name;
-	new_dog->age = age;
-	new_dog->owner = owner;
+	newdog->name = name;
+	newdog->age = age;
+	newdog->owner = owner;
 
-	return (new_dog);
+	return (newdog);
 }
