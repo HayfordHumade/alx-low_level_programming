@@ -46,19 +46,33 @@ void array_char(char *string)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *newdog;
-	char *dog_name;
-	char *dog_owner;
 
-	dog_name = array_char(name);
-	dog_owner = array_char(owner);
-
-	free(name);
-	free(owner);
-
-	newdog->name = dog_name;
+	newdog = malloc(sizeof(dog_t));
+	if (newdog == NULL)
+	{
+		free(newdog);
+		return (NULL);
+	}
+	newdog->name = array_char(name);
+	if (newdog->name == NULL)
+	{
+		free(newdog->name);
+		return (NULL);
+	}
+	newdog->owner = array_char(owner);
+	if (newdog->owner == NULL)
+	{
+		free(newdog->owner);
+		return (NULL);
+	}
 	newdog->age = age;
-	newdog->owner = dog_owner;
+	if (newdog->age == NULL)
+	{
+		free(newdog->age);
+		return (NULL);
+	}
 	if (newdog == NULL)
 		return (NULL);
+
 	return (newdog);
 }
