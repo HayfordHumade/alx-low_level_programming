@@ -14,6 +14,8 @@ void array_char(char *string)
 	int string_length, i, memory_size;
 	char *ptr;
 
+	if (string == NULL)
+		return (NULL);
 	string_length = 0;
 	while (string[string_length] != '\0')
 		string_length++;
@@ -47,9 +49,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 	char *dog_name;
 	char *dog_owner;
 
-	newdog = malloc(sizeof(dog_t));
-	if (newdog == NULL)
-		return (NULL);
 	dog_name = array_char(name);
 	dog_owner = array_char(owner);
 
@@ -59,6 +58,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	newdog->name = dog_name;
 	newdog->age = age;
 	newdog->owner = dog_owner;
-
+	if (newdog == NULL)
+		return (NULL);
 	return (newdog);
 }
