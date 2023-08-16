@@ -30,7 +30,6 @@ void array_char(char *string)
 		ptr[i] = string[i];
 		i++;
 	}
-	ptr[string_length] = '\0';
 
 	return (ptr);
 }
