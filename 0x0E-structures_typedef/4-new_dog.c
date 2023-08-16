@@ -56,14 +56,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 	newdog->name = array_char(name);
 	if (newdog->name == NULL)
 	{
-		free(newdog);
 		return (NULL);
 	}
 	newdog->owner = array_char(owner);
 	if (newdog->owner == NULL)
 	{
-		free(newdog->name);
-		free(newdog);
 		return (NULL);
 	}
 	newdog->age = age;
