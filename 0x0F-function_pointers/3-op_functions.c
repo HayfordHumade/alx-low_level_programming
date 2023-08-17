@@ -1,11 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "3-calc.h"
 /**
  * op_add - Function returns the sum of two digits
  * @a: First digit
  * @b: Second digit
  *
- * Description: Does just that
+ * Description: Adds a and b
  * Return: The sum of digits 'a' and 'b'
  */
 int op_add(int a, int b)
@@ -17,7 +18,7 @@ int op_add(int a, int b)
  * @a: First digit
  * @b: Second digit
  *
- * Description: Does that
+ * Description: Subtracts b from a
  * Return: Difference
  */
 int op_sub(int a, int b)
@@ -26,12 +27,12 @@ int op_sub(int a, int b)
 }
 
 /**
- * op_mul - Function returns difference between 2 digits
+ * op_mul - Function computes a multiplied by b
  * @a: First digit
  * @b: Second digit
  *
- * Description: Does that
- * Return: Difference
+ * Description: Multiplies a by b
+ * Return: result of multiplication
  */
 int op_mul(int a, int b)
 {
@@ -39,11 +40,11 @@ int op_mul(int a, int b)
 }
 
 /**
- * op_div - Function returns difference between 2 digits
+ * op_div - Function computes a divided by b
  * @a: First digit
  * @b: Second digit
  *
- * Description: Does that
+ * Description: Divides a over b
  * Return: Division
  */
 int op_div(int a, int b)
@@ -52,12 +53,12 @@ int op_div(int a, int b)
 }
 
 /**
- * op_mod - Function returns difference between 2 digits
+ * op_mod - Function returns a modulo b
  * @a: First digit
  * @b: Second digit
  *
- * Description: Does that
- * Return: Difference
+ * Description: Computes remainder when a is divided by b
+ * Return: remainder.
  */
 int op_mod(int a, int b)
 {
