@@ -11,22 +11,23 @@
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	int (*op_function(char *s))(int, int);
-	int *a;
-	int *b;
+	int (*op_function)(int, int);
+	int a;
+	int b;
 	int result;
 	char *s;
 
+	if (argc != 4)
+		return;
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
 	s = argv[2];
-	if (a == NULL || b == NULL || s == NULL)
-		return (NULL);
+	if (b == 0)
+		return;
+	if (s == NULL)
+		return;
 	op_function = get_op_func(s);
-	if (op_function == NULL)
-		return (NULL);
-	result = op_function(s)(a, b);
-	if (result == NULL)
-		return (NULL);
+	result = op_function(a, b);
+
 	return (result);
 }
