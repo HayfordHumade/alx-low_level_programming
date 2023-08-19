@@ -48,12 +48,12 @@ int mul(int num1, int num2)
  */
 int main(int *argc, char *argv[])
 {
-	int num_1;
-	int num_2;
+	int *num_1;
+	int *num_2;
 
-	num_1 = argv[1];
-	num_2 = argv[2];
-	if (argc > 3)
+	num_1 = (int *)argv[1];
+	num_2 = (int *)argv[2];
+	if ((int)argc > 3)
 		error();
 	else
 		mul(num_1, num_2);
