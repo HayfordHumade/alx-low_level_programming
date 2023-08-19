@@ -11,23 +11,31 @@
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	int (*op_function)(int, int);
 	int num1;
 	int num2;
-	int result;
 	char *s;
 
 	if (argc != 4)
-		return;
+	{
+		printf("Error\n");
+		exit(98);
+	}
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
 	s = argv[2];
-	if (b == 0)
-		return;
-	if (s == NULL)
-		return;
-	op_function = get_op_func(s);
-	result = op_function(num1, num2);
 
-	return (result);
+	if (get_op_func(s) == NULL || op[1] != '\0')
+	{
+		printf("Error\n");
+		exit(99);
+	}
+	if ((*s == '/' && num2 == 0) || (*s == '%' && num2 == 0))
+	{
+		printf("Error\n");
+		exit(100);
+	}
+
+	printf("%d\n", get_op_func(s)(num1, num2));
+
+	return (0);
 }
