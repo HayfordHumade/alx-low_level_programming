@@ -37,7 +37,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(100);
 	}
 
-	printf("%d\n", *func_ptr(num1, num2));
+	printf("%d\n", func_ptr(num1, num2));
 
 	return (0);
 }
