@@ -12,22 +12,22 @@
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	int (*op_function)(int, int);
-	int a;
-	int b;
+	int num1;
+	int num2;
 	int result;
 	char *s;
 
 	if (argc != 4)
 		return;
-	a = atoi(argv[1]);
-	b = atoi(argv[3]);
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[3]);
 	s = argv[2];
 	if (b == 0)
 		return;
 	if (s == NULL)
 		return;
 	op_function = get_op_func(s);
-	result = op_function(a, b);
+	result = op_function(num1, num2);
 
 	return (result);
 }
