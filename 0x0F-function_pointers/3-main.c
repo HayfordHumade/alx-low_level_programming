@@ -14,7 +14,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	int num1;
 	int num2;
 	char *operator;
-	/* int (*func_ptr(char *s))(int, int); */
+	/* int (*func_ptr)(int, int); */
 
 	if (argc != 4)
 	{
@@ -37,7 +37,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	}
 
 
-	printf("%d\n", func_ptr(operator)(num1, num2));
+	printf("%d\n", get_op_func(operator)(num1, num2));
 
 	return (0);
 }
