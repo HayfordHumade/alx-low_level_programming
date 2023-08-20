@@ -13,8 +13,8 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	int num1;
 	int num2;
-	char s;
-	int (*func_ptr(char *s))(int, int);
+	char *operator;
+	/* int (*func_ptr(char *s))(int, int); */
 
 	if (argc != 4)
 	{
@@ -23,10 +23,9 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	}
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
-	s = argv[2];
-	func_ptr = get_op_func(&s)(int, int);
+	operator = argv[2];
 
-	if (func_ptr == NULL)
+	if (get_op_func(&s) == NULL)
 	{
 		printf("Error\n");
 		exit(99);
@@ -37,7 +36,8 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(100);
 	}
 
-	printf("%d\n", func_ptr(num1, num2));
+
+	printf("%d\n", func_ptr(operator)(num1, num2));
 
 	return (0);
 }
