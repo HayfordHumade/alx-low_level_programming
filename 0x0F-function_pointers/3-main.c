@@ -23,7 +23,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	}
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
-	operator = &(argv[2]);
+	operator = argv[2];
 
 	if (get_op_func(&s) == NULL)
 	{
