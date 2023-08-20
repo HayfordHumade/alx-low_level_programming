@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "3-calc.h"
 /**
- * (*get_op_func(char *s))(int, int) - This function returns a function pointer
+ * get_op_func - This function returns a function pointer
  * @s: Receives operator +, -, /, % or *
  *
  * Description: Checks which function operator 's' corresponds to
@@ -20,11 +20,11 @@ int (*get_op_func(char *s))(int, int)
 	};
 	int i = 0;
 
-	while (i < 6)
-	{
-		if (ops[i].op == *s)
-			return (ops[i].f);
+	while (*(ops[i].op) != NULL && *(ops[i].op != *s)
 		i++;
-	}
-	return (NULL);
+
+	if (*(ops[i].op) == NULL)
+		return (NULL);
+
+	return (ops[i].f);
 }
