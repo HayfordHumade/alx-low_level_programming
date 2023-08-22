@@ -13,8 +13,6 @@ int ele_number(const char *s)
 {
 	int number = 0;
 
-	if (s == NULL)
-		exit(98);
 	while (s[number] != '\0')
 		number++;
 
