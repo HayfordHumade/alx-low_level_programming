@@ -61,6 +61,8 @@ void print_all(const char * const format, ...)
 			default:
 				break;
 		}
+		if (i < (size - 1))
+			printf(", ");
 		i++;
 	}
 	va_end(ap);
