@@ -51,7 +51,7 @@ void print_all(const char * const format, ...)
 				break;
 			case 's':
 			{
-				if (&format[i] == NULL)
+				if (va_arg(ap, char *) == NULL)
 					printf("(nil)");
 				printf("%s", va_arg(ap, char *));
 			}
