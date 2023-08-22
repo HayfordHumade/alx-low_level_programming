@@ -3,22 +3,6 @@
 #include <stdarg.h>
 #include "variadic_functions.h"
 /**
- * ele_number - Function returns number of elements
- * @s: A char pointer to a string
- *
- * Description: Loops through a string and returns the number of elements
- * Return: integer.
- */
-int ele_number(const char *s)
-{
-	int number = 0;
-
-	while (s[number] != '\0')
-		number++;
-
-	return (number);
-}
-/**
  * print_all - Function prints everything
  * @format: Contains argument types
  *
@@ -27,39 +11,41 @@ int ele_number(const char *s)
  */
 void print_all(const char * const format, ...)
 {
-	int i;
-	int size;
+	int i = 0, print_separator;
 	va_list ap;
+	char *string;
 
-	if (format == NULL)
-		return;
-	size = ele_number(format);
-	i = 0;
 	va_start(ap, format);
-	while (i < size)
+	while (format != NULL && format[i] != '\0')
 	{
 		switch (format[i])
 		{
 			case 'c':
 				printf("%c", va_arg(ap, int));
+				print_separator = 1;
 				break;
 			case 'i':
 				printf("%d", va_arg(ap, int));
+				print_separator = 1;
 				break;
 			case 'f':
 				printf("%f", va_arg(ap, double));
+				print_separator = 1;
 				break;
 			case 's':
-			{
-				if (va_arg(ap, char *) == NULL)
+				string = va_arg(ap, char *);
+				if (string == NULL)
+				{
 					printf("(nil)");
-				printf("%s", va_arg(ap, char *));
-			}
+				}
+				printf("%s", string);
+				print_separator = 1;
 				break;
 			default:
+				print_separator = 0;
 				break;
 		}
-		if (i < (size - 1))
+		if (print_separator == 1 && format[i + 1] != '\0')
 			printf(", ");
 		i++;
 	}
