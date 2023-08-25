@@ -53,7 +53,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		current->next = n_node;
 
 		/* create last node to be NULL */
-		n_node->next = NULL;
+		current->next->next = NULL;
 	}
 	else
 		return (NULL);
