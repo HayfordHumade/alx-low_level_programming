@@ -11,18 +11,44 @@
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *n_list;
-	unsigned int len;
+	/* declare a new node n_list */
+	list_t *n_node, *current;
+	unsigned int len = 0;
 
-	n_list = (list_t *)malloc(sizeof(list_t));
-	len = 0;
-	if (n_list == NULL)
-		return (NULL);
-	n_list->str = strdup(str);
-	if (n_list->str != NULL)
+	/* allocate memory for new node */
+	n_node = (list_t *)malloc(sizeof(list_t));
+
+	/* check if new node is NULL before using it */
+	if (n_node != NULL)
 	{
-		while (n_list->str[len] != '\0')
-			len++;
+		/* copy str into new node str */
+		n_node->str = strdup(str);
+
+		/* evaluate for the lenght of str if str isn't null */
+		if (n_node->str != NULL)
+		{
+			while (n_node->str[len] != '\0')
+				len++;
+		}
+
+		/* assign length of str to ->len */
+		n_node->len = len;
+
+		/* assign current to head */
+		current = *head;
+
+		/* find the end of linked list */
+		while (current->next != NULL)
+			current = current->next;
+
+		/* add new node by replacing NULL */
+		current->next = n_node;
+
+		/* create last node to be NULL */
+		n_node->next = NULL;
 	}
-	n_list->len = len;
+	else
+		return (NULL);
+
+	return (n_node);
 }
