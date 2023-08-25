@@ -34,6 +34,10 @@ list_t *add_node_end(list_t **head, const char *str)
 		/* assign length of str to ->len */
 		n_node->len = len;
 
+		/* check *head before using it */
+		if (*head == NULL)
+			return (NULL);
+
 		/* assign current to head */
 		current = *head;
 
