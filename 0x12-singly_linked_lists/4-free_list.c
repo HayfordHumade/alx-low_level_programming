@@ -13,6 +13,8 @@ void free_list(list_t *head)
 {
 	list_t *temp;
 
+	/* allocate memory for temp */
+	temp = (list_t *)malloc(sizeof(list_t));
 	while (head != NULL)
 	{
 		/* set temp to head */
