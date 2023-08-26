@@ -24,4 +24,6 @@ void free_list(list_t *head)
 		/* free temp */
 		free(temp);
 	}
+	/* set head to NULL */
+	head = NULL;
 }
