@@ -13,8 +13,6 @@ void free_list(list_t *head)
 {
 	list_t *temp;
 
-	/* allocate memory for temp */
-	temp = (list_t *)malloc(sizeof(list_t));
 	while (head != NULL)
 	{
 		/* set temp to head */
@@ -23,13 +21,12 @@ void free_list(list_t *head)
 		/* set head to next list_t */
 		head = head->next;
 
+		/* free ->str */
+		free(temp->str);
+
 		/* free temp */
 		free(temp);
-
-		/* allocate another memory for temp */
-		temp = (list_t *)malloc(sizeof(list_t));
 	}
-
 	/* set head to NULL */
-	head = NULL;
+	/*head = NULL;*/
 }
