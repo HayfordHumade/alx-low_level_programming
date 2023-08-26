@@ -7,12 +7,12 @@ section .text
 	extern printf
 
 _start:
-	push rbp
+	sub rsp, 8
+
 	mov rdi, hello
 	call printf
-	add rsp, 8
-	pop rbp
 
+	add rsp, 8
 
 	mov rax, 60
 	xor rdi, rdi
