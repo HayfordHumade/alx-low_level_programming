@@ -2,19 +2,11 @@ section .data
 	hello db "Hello, Holberton", 0
 
 section .text
-	global _start
+	global main
 
-	extern printf
-
-_start:
-	sub rsp, 8
-
-	mov rdi, hello
-	call printf
-
-	add rsp, 8
-
-	mov rax, 60
-	xor rdi, rdi
+main:
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, hello
+	mov rdx, 17
 	syscall
-
