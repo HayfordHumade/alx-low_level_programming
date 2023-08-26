@@ -25,7 +25,11 @@ void free_list(list_t *head)
 
 		/* free temp */
 		free(temp);
+
+		/* allocate another memory for temp */
+		temp = (list_t *)malloc(sizeof(list_t));
 	}
+
 	/* set head to NULL */
 	head = NULL;
 }
