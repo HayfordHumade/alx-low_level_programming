@@ -11,3 +11,9 @@ ABOUT STATIC LIBRARIES/ARCHIVES
 -------------------------------
 They are only linked during the linking phase in the c
 compilation process.
+
+
+SCRIPT FILE
+-----------
+create_static_lib.sh:	Compiles all *.c files into *.o files
+			Creates a static library called liball.a
