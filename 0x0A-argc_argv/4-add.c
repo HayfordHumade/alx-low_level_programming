@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 	{
 		while (n < argc)
 		{
-			if (atoi(argv[n]) >= 0)
+			if (atoi(argv[n]) > 0)
 			{
 				result += atoi(argv[n]);
 			}
