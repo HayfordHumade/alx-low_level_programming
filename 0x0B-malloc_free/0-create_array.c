@@ -14,14 +14,18 @@ char *create_array(unsigned int size, char c)
 	char *char_array;
 	unsigned int i = 0;
 
+	/* allocate memory for char_array */
 	char_array = malloc(size);
-	if (char_array == NULL)
+	/* check memory & it's size */
+	if (char_array == NULL || size < 1)
 		return (NULL);
+	/* loop through & initialize every byte */
 	while (i < size)
 	{
 		char_array[i] = c;
 		i++;
 	}
 
+	/* returns pointer to first char in array */
 	return (char_array);
 }
