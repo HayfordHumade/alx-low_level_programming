@@ -32,20 +32,22 @@ char *str_concat(char *s1, char *s2)
 			s2_size++;
 	}
 	size = s1_size + s2_size + 1;
-	/* allocate memory for str */
 	str = malloc(sizeof(char) * size);
-	/* check str */
 	if (str == NULL)
 		return (NULL);
-
 	k = 0;
-	/* copy s1 & s2 into str respectively */
-	for (i = 0; i < s1_size; i++)
-		str[i] = s1[i];
-	for (j = s1_size; j < size; j++)
+	if (s1 != NULL || s1_size > 1)
 	{
-		str[j] = s2[k];
-		k++;
+		for (i = 0; i < s1_size; i++)
+			str[i] = s1[i];
+	}
+	if (s2 != NULL || s2_size > 1)
+	{
+		for (j = s1_size; j < size; j++)
+		{
+			str[j] = s2[k];
+			k++;
+		}
 	}
 	str[size] = '\0';
 
