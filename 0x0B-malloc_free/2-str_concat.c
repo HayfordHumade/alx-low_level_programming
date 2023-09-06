@@ -34,17 +34,17 @@ char *str_concat(char *s1, char *s2)
 	/* allocate memory for str */
 	str = malloc(sizeof(char) * size);
 	/* check str */
-	if (str != NULL)
+	if (str == NULL)
+		return (NULL);
+
+	k = 0;
+	/* copy s1 & s2 into str respectively */
+	for (i = 0; i < s1_size; i++)
+		str[i] = s1[i];
+	for (j = s1_size; j < size; j++)
 	{
-		k = 0;
-		/* copy s1 & s2 into str respectively */
-		for (i = 0; i < s1_size; i++)
-			str[i] = s1[i];
-		for (j = s1_size; j < size; j++)
-		{
-			str[j] = s2[k];
-			k++;
-		}
+		str[j] = s2[k];
+		k++;
 	}
 	str[size] = '\0';
 
