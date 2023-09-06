@@ -15,7 +15,7 @@ char *_strdup(char *str)
 
 	size = 0;
 	/* check for str before use */
-	if (str == NULL || str[0] == '\0')
+	if (str == NULL)
 		return (NULL);
 	/* determine size of str */
 	while (str[size] != '\0')
@@ -23,7 +23,7 @@ char *_strdup(char *str)
 	/* allocate memory for new str */
 	new_str = malloc(sizeof(char) * (size + 1));
 	/* check allocated memory before use */
-	if (new_str == NULL || size < 1)
+	if (new_str == NULL)
 		return (NULL);
 	/* copy str into new str */
 	for (i = 0; i < size; i++)
