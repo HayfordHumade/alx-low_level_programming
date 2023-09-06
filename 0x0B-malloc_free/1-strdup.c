@@ -14,12 +14,12 @@ char *_strdup(char *str)
 	int i, size;
 
 	size = 0;
-	/* check str before use */
-	if (str == NULL)
-		return (NULL);
 	/* determine size of str */
 	while (str[size] != '\0')
 		size++;
+	/* check str before use */
+	if (str == NULL || size < 1)
+		return (NULL);
 	/* allocate memory for new str */
 	new_str = malloc(sizeof(char) * (size + 1));
 	/* check allocated memory before use */
