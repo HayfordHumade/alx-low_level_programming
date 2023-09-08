@@ -7,7 +7,7 @@
  * Description: Prints 'Error' and exits code
  * Return: 'Error'
  */
-void error(void)
+int error()
 {
 		_putchar('E');
 		_putchar('r');
@@ -28,9 +28,7 @@ void error(void)
 int mul(unsigned int num1, unsigned int num2)
 {
 	if (!num1 || !num2)
-	{
 		error();
-	}
 
 	return (num1 * num2);
 }
