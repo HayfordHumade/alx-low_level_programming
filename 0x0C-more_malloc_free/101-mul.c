@@ -27,7 +27,7 @@ void error(void)
  */
 int mul(unsigned int num1, unsigned int num2)
 {
-	if (num1 < 0 || num2 < 0)
+	if (!num1 || !num2)
 	{
 		error();
 	}
@@ -42,7 +42,7 @@ int mul(unsigned int num1, unsigned int num2)
  * Descrition: Uses functions above to compute multiplication
  * Return: Always 0.
  */
-int main(unsigned int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	unsigned int num_1;
 	unsigned int num_2;
