@@ -27,16 +27,12 @@ void error(void)
  */
 int mul(int num1, int num2)
 {
-	int multiply;
-
-	if (sizeof(num1) != sizeof(unsigned int) ||
-			sizeof(num2) != sizeof(unsigned int))
+	if (num1 < 0 || num2 < 0)
 	{
 		error();
 	}
-	multiply = num1 * num2;
 
-	return (multiply);
+	return (num1 * num2);
 }
 /**
  * main - Runs everything
@@ -46,16 +42,19 @@ int mul(int num1, int num2)
  * Descrition: Uses functions above to compute multiplication
  * Return: Always 0.
  */
-int main(int *argc, char *argv[])
+int main(int argc, char *argv[])
 {
-	int *num_1;
-	int *num_2;
+	int num_1;
+	int num_2;
 
-	num_1 = (int *)argv[1];
-	num_2 = (int *)argv[2];
-	if ((int)argc > 3)
+	/* check number of arguments */
+	if (argc != 3)
 		error();
-	else
-		mul(num_1, num_2);
+	/* assign numbers to be multiplied */
+	num_1 = atoi(argv[1]);
+	num_2 = atoi(argv[2]);
+	/* print result */
+	printf("%d\n", mul(num_1, num_2));
+
 	return (0);
 }
