@@ -45,6 +45,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 			k++;
 		}
 	}
-	str[size] = '\0';
+	str[size - 1] = '\0';
 	return (str);
 }
