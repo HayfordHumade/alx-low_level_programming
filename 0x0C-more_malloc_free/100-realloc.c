@@ -27,10 +27,10 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		free(ptr);
 		return (NULL);
 	}
-	/* Allocate memory of new_size */
+	/* allocate memory of new_size */
 	if (new_size > old_size)
 		new_ptr = malloc(new_size);
-	/* Free memory block, ptr */
+	/* free memory block, ptr */
 	free(ptr);
 
 	return (new_ptr);
