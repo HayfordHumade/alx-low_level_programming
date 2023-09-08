@@ -7,7 +7,7 @@
  * Description: Prints 'Error' and exits code
  * Return: 'Error'
  */
-int error()
+void error()
 {
 		_putchar('E');
 		_putchar('r');
