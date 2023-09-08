@@ -18,12 +18,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	s1_size = 0, s2_size = 0, k = 0;
 	if (s1 == NULL)
-		s1_size = 0;
+		s1 = "";
 	else
 		while (s1[s1_size] != '\0')
 			s1_size++;
 	if (s1 == NULL)
-		s2_size = 0;
+		s2 = "";
 	else
 		while (s2[s2_size] != '\0')
 			s2_size++;
