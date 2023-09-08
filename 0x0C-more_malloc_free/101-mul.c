@@ -27,9 +27,6 @@ void error(void)
  */
 int mul(unsigned int num1, unsigned int num2)
 {
-	if (!num1 || !num2)
-		error();
-
 	return (num1 * num2);
 }
 /**
@@ -49,8 +46,13 @@ int main(int argc, char *argv[])
 	if (argc != 3)
 		error();
 	/* assign numbers to be multiplied */
-	num_1 = atoi(argv[1]);
-	num_2 = atoi(argv[2]);
+	if (atoi(argv[1]) > 0 && atoi(argv[2]) > 0)
+	{
+		num_1 = atoi(argv[1]);
+		num_2 = atoi(argv[2]);
+	}
+	else
+		error();
 	/* print result */
 	printf("%d\n", mul(num_1, num_2));
 
