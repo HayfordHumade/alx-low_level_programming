@@ -25,7 +25,7 @@ void error(void)
  * Description: Multiplies num1 by num2
  * Return: multiply value
  */
-int mul(int num1, int num2)
+int mul(unsigned int num1, unsigned int num2)
 {
 	if (num1 < 0 || num2 < 0)
 	{
@@ -42,10 +42,10 @@ int mul(int num1, int num2)
  * Descrition: Uses functions above to compute multiplication
  * Return: Always 0.
  */
-int main(int argc, char *argv[])
+int main(unsigned int argc, char *argv[])
 {
-	int num_1;
-	int num_2;
+	unsigned int num_1;
+	unsigned int num_2;
 
 	/* check number of arguments */
 	if (argc != 3)
