@@ -45,8 +45,8 @@ int main(int argc, char *argv[])
 	/* check number of arguments */
 	if (argc != 3)
 		error();
-	/* assign numbers to be multiplied */
-	if (atoi(argv[1]) > 0 && atoi(argv[2]) > 0)
+	/* check if passed values are positive */
+	if (atoi(argv[1]) >= 0 && atoi(argv[2]) >= 0)
 	{
 		num_1 = atoi(argv[1]);
 		num_2 = atoi(argv[2]);
