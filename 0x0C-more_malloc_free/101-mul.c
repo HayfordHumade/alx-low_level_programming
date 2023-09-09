@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <gmp.h>
 #include "main.h"
 /**
  * error - A function that prints an 'Error'
@@ -25,9 +26,11 @@ void error(void)
  * Description: Multiplies num1 by num2
  * Return: multiply value
  */
-int mul(unsigned int num1, unsigned int num2)
+void mul(mpz_t res, mpz_t num1, mpz_t num2)
 {
-	return (num1 * num2);
+	/*if (*num1 < 0 || *num2 < 0)
+		error();*/
+	mpz_mul(res, num1, num2);
 }
 /**
  * main - Runs everything
@@ -39,22 +42,24 @@ int mul(unsigned int num1, unsigned int num2)
  */
 int main(int argc, char *argv[])
 {
-	unsigned int num_1;
-	unsigned int num_2;
+	mpz_t num_1, num_2, result;
 
+	mpz_init(num_1);
+	mpz_init(num_2);
+	mpz_init(result);
 	/* check number of arguments */
 	if (argc != 3)
 		error();
 	/* check if passed values are positive */
-	if (atoi(argv[1]) >= 0 && atoi(argv[2]) >= 0)
-	{
-		num_1 = atoi(argv[1]);
-		num_2 = atoi(argv[2]);
-	}
-	else
-		error();
+	mpz_set_str(num_1, argv[1], 10);
+	mpz_set_str(num_2, argv[2], 10);
 	/* print result */
-	printf("%d\n", mul(num_1, num_2));
+	mul(result, num_1, num_2);
+	gmp_printf("%Zd\n", result);
+
+	mpz_clear(num_1);
+	mpz_clear(num_2);
+	mpz_clear(result);
 
 	return (0);
 }
