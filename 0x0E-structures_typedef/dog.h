@@ -1,6 +1,14 @@
 #ifndef DOG_H
 #define DOG_H
 
+/**
+ * struct dog - information about the dog
+ * @name: of dog
+ * @age: of dog
+ * @owner: of dog
+ *
+ * Description: gives all information about a dog
+ */
 struct dog
 {
 	char *name;
