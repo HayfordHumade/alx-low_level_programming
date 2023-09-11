@@ -19,16 +19,21 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 	/* allocate memory for arr pointers */
 	arr = (int **)malloc(sizeof(int *) * height);
+	if (arr == NULL)
+		return (NULL);
 	/* allocate memory for arr integers */
 	for (i = 0; i < height; i++)
 		arr[i] = (int *)malloc(sizeof(int) * width);
-	/* check arr for NULL */
-	if (arr == NULL)
+	/* check arr[i] for NULL */
+	for (i = 0; i < height; i++)
 	{
-		for (i = 0; i < height; i++)
-			free(arr[i]);
-		free(arr);
-		return (NULL);
+		if (arr[i] == NULL)
+		{
+			for (j = 0; j < i; j++)
+				free(arr[j]);
+			free(arr);
+			return (NULL);
+		}
 	}
 	/* initializing 2D array */
 	for (i = 0; i < height; i++)
