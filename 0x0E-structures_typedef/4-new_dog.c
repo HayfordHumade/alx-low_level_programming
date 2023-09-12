@@ -24,16 +24,21 @@ dog_t *new_dog(char *name, float age, char *owner)
 	/* always check if memory allocation is a success */
 	if (new_dog != NULL)
 	{
-		if (new_name == NULL)
-			new_name = "";
-		if (new_owner == NULL)
-			new_owner = "";
+		if (new_name == NULL || new_owner == NULL)
+			return (NULL);
 		new_dog->name = new_name;
 		new_dog->age = age;
 		new_dog->owner = new_owner;
 	}
 	else
+	{
+		free(new_name);
+		free(new_owner);
+		free(new_dog->name);
+		free(new_dog->owner);
+		free(new_dog);
 		return (NULL);
+	}
 
 	/* return pointer to new_dog */
 	return (new_dog);
