@@ -2,69 +2,44 @@
 #include <stdlib.h>
 #include "dog.h"
 /**
- * array_char - Function to allocate memory
- * @string: Takes char pointers
+ * new_dog - creates a new dog
+ * @name: of new_dog
+ * @age: of new dog
+ * @owner: of new dog
  *
- * Description: This function allocates the right memory and returns
- * a pointer to the memory
- * Return: Pointer to char allocated memory.
- */
-char *array_char(char *string)
-{
-	int string_length, i;
-	char *ptr;
-
-	if (string == NULL)
-		return (NULL);
-	string_length = 0;
-	while (string[string_length] != '\0')
-		string_length++;
-	/* Allocates bytes x number of characters */
-	ptr = malloc(string_length + 1);
-	if (ptr == NULL)
-		return (NULL);
-	i = 0;
-	while (i < string_length)
-	{
-		ptr[i] = string[i];
-		i++;
-	}
-
-	return (ptr);
-}
-/**
- * new_dog - Create new dog with dog_t
- * @name: Name
- * @age: Age
- * @owner: Owner
- *
- * Description: Funciton creates a new dog structure using the typedef 'dog_t'
- * Return: nothing.
+ * Description: create a new dog with the parameters above
+ * Return: pointer to new dog.
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *newdog;
-	char *newname;
-	char *newowner;
+	/* declare new dog variable of type dog_t */
+	dog_t *new_dog;
+	char *new_name;
+	char *new_owner;
 
-	newname = array_char(name);
-	newowner = array_char(owner);
-	newdog = malloc(sizeof(dog_t));
-	if (newdog != NULL)
+	new_name = name;
+	new_owner = owner;
+	/* allocate memory for new_dog */
+	new_dog = malloc(sizeof(dog_t));
+	/* always check if memory allocation is a success */
+	if (new_dog != NULL)
 	{
-		if (newname == NULL)
+		if (new_name == NULL || new_owner == NULL)
 			return (NULL);
-		newdog->name = newname;
-		newdog->age = age;
-		if (newowner == NULL)
-			return (NULL);
-		newdog->owner = newowner;
+		new_dog->name = new_name;
+		new_dog->age = age;
+		new_dog->owner = new_owner;
 	}
 	else
 	{
-		free(newdog);
+		free(new_name);
+		free(new_owner);
+		free(new_dog->name);
+		free(new_dog->owner);
+		free(new_dog);
 		return (NULL);
 	}
 
-	return (newdog);
+	/* return pointer to new_dog */
+	return (new_dog);
 }
