@@ -53,7 +53,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (newdog != NULL)
 	{
 		newdog->name = newname;
-		newdog->owner = array_char(owner);
+		newdog->owner = newowner;
 		newdog->age = age;
 	}
 	else
