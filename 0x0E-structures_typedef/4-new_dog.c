@@ -19,12 +19,10 @@ char *array_char(char *string)
 	string_length = 0;
 	while (string[string_length] != '\0')
 		string_length++;
-	/* Allocates memory/bytes of 'char' * 'number of characters' */
+	/* Allocates bytes x number of characters */
 	ptr = malloc(string_length + 1);
 	if (ptr == NULL)
-	{
 		return (NULL);
-	}
 	i = 0;
 	while (i < string_length)
 	{
@@ -46,25 +44,18 @@ char *array_char(char *string)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *newdog;
+	char *newname;
+	char *newowner;
 
+	newname = array_char(name);
+	newowner = array_char(owner);
 	newdog = malloc(sizeof(dog_t));
 	if (newdog != NULL)
 	{
-		if (name == NULL || owner == NULL)
+		if (newname == NULL || newowner == NULL)
 			return (NULL);
-		newdog->name = array_char(name);
-		if (newdog->name == NULL)
-		{
-			free(newdog);
-			return (NULL);
-		}
+		newdog->name = newname;
 		newdog->owner = array_char(owner);
-		if (newdog->owner == NULL)
-		{
-			free(newdog->name);
-			free(newdog);
-			return (NULL);
-		}
 		newdog->age = age;
 	}
 	else
