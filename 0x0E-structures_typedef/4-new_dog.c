@@ -2,44 +2,83 @@
 #include <stdlib.h>
 #include "dog.h"
 /**
- * new_dog - creates a new dog
- * @name: of new_dog
- * @age: of new dog
- * @owner: of new dog
+ * array_char - Function to allocate memory
+ * @string: Takes char pointers
  *
- * Description: create a new dog with the parameters above
- * Return: pointer to new dog.
+ * Description: This function allocates the right memory and returns
+ * a pointer to the memory
+ * Return: Pointer to char allocated memory.
+ */
+char *array_char(char *string)
+{
+	int string_length, i;
+	char *ptr;
+
+	if (string == NULL)
+		return (NULL);
+	string_length = 0;
+	while (string[string_length] != '\0')
+		string_length++;
+	/* Allocates memory/bytes of 'char' * 'number of characters' */
+	ptr = malloc(string_length + 1);
+	if (ptr == NULL)
+	{
+		return (NULL);
+	}
+	i = 0;
+	while (i < string_length)
+	{
+		ptr[i] = string[i];
+		i++;
+	}
+
+	return (ptr);
+}
+/**
+ * new_dog - Create new dog with dog_t
+ * @name: Name
+ * @age: Age
+ * @owner: Owner
+ *
+ * Description: Funciton creates a new dog structure using the typedef 'dog_t'
+ * Return: nothing.
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	/* declare new dog variable of type dog_t */
-	dog_t *new_dog;
-	char *new_name;
-	char *new_owner;
+	dog_t *newdog = NULL;
 
-	new_name = name;
-	new_owner = owner;
-	/* allocate memory for new_dog */
-	new_dog = malloc(sizeof(dog_t));
-	/* always check if memory allocation is a success */
-	if (new_dog != NULL)
+	if (name == NULL || owner == NULL)
+		return (NULL);
+	newdog = malloc(sizeof(dog_t));
+	if (newdog == NULL)
 	{
-		if (new_name == NULL || new_owner == NULL)
-			return (NULL);
-		new_dog->name = new_name;
-		new_dog->age = age;
-		new_dog->owner = new_owner;
-	}
-	else
-	{
-		free(new_name);
-		free(new_owner);
-		free(new_dog->name);
-		free(new_dog->owner);
-		free(new_dog);
+		free(newdog);
 		return (NULL);
 	}
 
-	/* return pointer to new_dog */
-	return (new_dog);
+	newdog->name = array_char(name);
+	if (newdog->name == NULL)
+	{
+		free(newdog);
+		return (NULL);
+	}
+
+	newdog->owner = array_char(owner);
+	if (newdog->owner == NULL)
+	{
+		free(newdog);
+		free(newdog->name);
+		return (NULL);
+	}
+
+	newdog->age = age;
+	if (newdog->age < 0)
+	{
+		free(newdog);
+		free(newdog->name);
+		free(newdog->owner);
+		return (NULL);
+	}
+
+	return (newdog);
 }
