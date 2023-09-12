@@ -14,15 +14,19 @@ dog_t *new_dog(char *name, float age, char *owner)
 {
 	/* declare new dog variable of type dog_t */
 	dog_t *new_dog;
+	char *new_name;
+	char *new_owner;
 
+	new_name = name;
+	new_owner = owner;
 	/* allocate memory for new_dog */
 	new_dog = malloc(sizeof(dog_t));
 	/* always check if memory allocation is a success */
 	if (new_dog != NULL)
 	{
-		new_dog->name = name;
+		new_dog->name = new_name;
 		new_dog->age = age;
-		new_dog->owner = owner;
+		new_dog->owner = new_owner;
 	}
 	else
 		return (NULL);
