@@ -11,5 +11,6 @@
 void print_name(char *name, void (*f)(char *))
 {
 	/* pass name into the function pointer f */
-	f(name);
+	if (name != NULL)
+		f(name);
 }
