@@ -3,7 +3,8 @@
 #include "dog.h"
 /**
  * str_copy - copies a string from a memory pointer
- * @str: string to be copied
+ * @str: source
+ * @s: destination
  *
  * Description: Copies a string from a pointer location
  * into a new string.
