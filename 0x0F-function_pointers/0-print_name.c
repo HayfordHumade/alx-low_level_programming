@@ -10,7 +10,7 @@
  */
 void print_name(char *name, void (*f)(char *))
 {
-	/* pass name into the function pointer f */
+	/* check name & f for NULL then pass name into f */
 	if (name != NULL && f != NULL)
 		f(name);
 }
