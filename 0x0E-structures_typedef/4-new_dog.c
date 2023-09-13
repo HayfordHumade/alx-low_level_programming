@@ -18,7 +18,6 @@ void str_copy(char *str, char *s)
 		size = 0;
 		while (str[size] != '\0')
 			size++;
-		s = malloc(size + 1);
 		if (s != NULL)
 		{
 			for (i = 0; i < size; i++)
@@ -42,7 +41,6 @@ void str_copy(char *str, char *s)
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	/* declare new dog variable of type dog_t */
 	dog_t *new_dog;
 	char *new_name, *new_owner;
 	int name_size, owner_size;
@@ -61,9 +59,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	new_owner = malloc(owner_size + 1);
 	str_copy(name, new_name);
 	str_copy(owner, new_owner);
-	/* allocate memory for new_dog */
 	new_dog = malloc(sizeof(dog_t));
-	/* always check if memory allocation is a success */
 	if (new_dog != NULL)
 	{
 		if (new_name == NULL || new_owner == NULL)
@@ -84,7 +80,5 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(new_dog);
 		return (NULL);
 	}
-
-	/* return pointer to new_dog */
 	return (new_dog);
 }
