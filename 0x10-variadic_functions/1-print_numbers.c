@@ -22,9 +22,18 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	{
 		/* print integer */
 		printf("%d", va_arg(ap, int));
-		/* check separator for NULL & print position */
-		if (i < (n - 1) && separator != NULL)
-			printf("%c ", *separator);
+		/* check separator for NULL */
+		if (separator != NULL)
+		{
+			/* print seprator for all except the last integer */
+			if (i < (n - 1))
+				printf("%c ", *separator);
+		}
+		else
+		{
+			va_end(ap);
+			return;
+		}
 	}
 	printf("\n");
 	va_end(ap);
