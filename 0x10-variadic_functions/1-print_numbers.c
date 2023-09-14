@@ -23,11 +23,12 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		/* print integer */
 		printf("%d", va_arg(ap, int));
 		/* check separator for NULL */
-		if (separator != NULL)
+		if (i < (n - 1))
 		{
 			/* print seprator for all except the last integer */
-			if (i < (n - 1))
-				printf("%c ", *separator);
+			if (separator != NULL)
+				printf("%c", *separator);
+			printf(" ");
 		}
 	}
 	printf("\n");
