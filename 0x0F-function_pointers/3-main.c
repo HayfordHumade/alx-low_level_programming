@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	num2 = atoi(argv[3]);
 	op = argv[2];
 	/* check for division by or modulo 0 */
-	if ((*op == '\\' && num2 == 0) || (*op == '%' && num2 == 0))
+	if ((*op == '/' || *op == '%') && (num2 == 0))
 	{
 		printf("Error\n");
 		exit(100);
