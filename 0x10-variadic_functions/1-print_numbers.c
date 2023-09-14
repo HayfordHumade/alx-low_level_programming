@@ -28,7 +28,6 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 			/* print seprator for all except the last integer */
 			if (separator != NULL)
 				printf("%c", *separator);
-			printf(" ");
 		}
 	}
 	printf("\n");
