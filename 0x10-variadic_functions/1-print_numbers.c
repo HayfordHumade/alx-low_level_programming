@@ -20,11 +20,20 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_start(ap, n);
 	for (i = 0; i < n; i++)
 	{
-		/* print integer */
-		printf("%d", va_arg(ap, int));
-		if (i < (n - 1) && separator != NULL)
-			/* print seprator for all except the last integer */
-			printf("%c ", *separator);
+		/* check separator for NULL */
+		if (separator != NULL)
+		{
+			/* print integer */
+			printf("%d", va_arg(ap, int));
+			if (i < (n - 1))
+				/* print seprator for all except the last integer */
+				printf("%c ", *separator);
+		}
+		else
+		{
+			va_end(ap);
+			return;
+		}
 	}
 	printf("\n");
 	va_end(ap);
