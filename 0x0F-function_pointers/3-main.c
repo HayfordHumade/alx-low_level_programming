@@ -12,7 +12,7 @@
 int main(int argc, char *argv[])
 {
 	int num1, num2, result;
-	char op, *p;
+	char *op;
 	int (*function)(int, int);
 
 	/* check number of arguments */
@@ -23,15 +23,14 @@ int main(int argc, char *argv[])
 	}
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
-	op = *argv[2];
-	p = &op;
+	op = argv[2];
 	/* check for division by or modulo 0 */
-	if ((op == '\\' || op == '%') && (num2 == 0))
+	if ((*op == '\\' || *op == '%') && (num2 == 0))
 	{
 		printf("Error\n");
 		exit(100);
 	}
-	function = get_op_func(p);
+	function = get_op_func(op);
 	/* check function for NULL */
 	if (function == NULL)
 	{
