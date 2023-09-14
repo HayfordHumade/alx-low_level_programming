@@ -15,8 +15,7 @@ int sum_them_all(const unsigned int n, ...)
 {
 	/* declare a list */
 	va_list ap;
-	unsigned int i;
-	int sum;
+	unsigned int i, sum;
 
 	if (n == 0)
 		return (0);
@@ -25,7 +24,7 @@ int sum_them_all(const unsigned int n, ...)
 	va_start(ap, n);
 	/* loop through the list & add the values to sum */
 	for (i = 0; i < n; i++)
-		sum += va_arg(ap, int);
+		sum += va_arg(ap, unsigned int);
 	/* clean ap */
 	va_end(ap);
 
