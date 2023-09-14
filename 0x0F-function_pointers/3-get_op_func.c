@@ -21,10 +21,7 @@ int (*get_op_func(char *s))(int, int)
 	};
 	int i;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	if (s != NULL && i == 1)
+	if (s != NULL && s[1] == '\0')
 	{
 		i = 0;
 		while (ops[i].op != NULL && *(ops[i].op) != *s)
