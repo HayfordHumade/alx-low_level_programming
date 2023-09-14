@@ -16,14 +16,15 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	unsigned int i;
 	char *s;
 
+	/* initialize variadic list */
 	va_start(ap, n);
 	for (i = 0; i < n; i++)
 	{
+		/* assign next argument in list to a char * */
 		s = va_arg(ap, char *);
+		/* check s for NULL */
 		if (s != NULL)
-		{
 			printf("%s", s);
-		}
 		else
 			printf("(nil)");
 		/* check position of string & separator for NULL */
