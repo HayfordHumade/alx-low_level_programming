@@ -29,12 +29,8 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 			if (i < (n - 1))
 				printf("%c ", *separator);
 		}
-		else
-		{
-			va_end(ap);
-			return;
-		}
 	}
 	printf("\n");
+
 	va_end(ap);
 }
