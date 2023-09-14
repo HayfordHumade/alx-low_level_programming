@@ -14,7 +14,7 @@
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list ap;
-	unsigned int i;
+	unsigned int i, j;
 
 	/* initializing ap list */
 	va_start(ap, n);
@@ -27,7 +27,14 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		{
 			/* print seprator for all except the last integer */
 			if (separator != NULL)
-				printf("%c", *separator);
+			{
+				j = 0;
+				while(*(separator + j) != '\0')
+				{
+					printf("%c", *(separator + j));
+					j++;
+				}
+			}
 		}
 	}
 	printf("\n");
