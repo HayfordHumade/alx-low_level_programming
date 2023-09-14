@@ -23,7 +23,6 @@ int main(int argc, char *argv[])
 	}
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
-	printf("%d\n", num2);
 	op = *argv[2];
 	p = &op;
 	/* check for division by or modulo 0 */
