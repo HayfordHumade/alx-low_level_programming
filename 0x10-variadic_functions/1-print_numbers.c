@@ -22,8 +22,8 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	{
 		/* print integer */
 		printf("%d", va_arg(ap, int));
+		/* check separator for NULL & print position */
 		if (i < (n - 1) && separator != NULL)
-			/* print seprator for all except the last integer */
 			printf("%c ", *separator);
 	}
 	printf("\n");
