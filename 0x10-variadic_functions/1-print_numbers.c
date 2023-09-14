@@ -29,14 +29,13 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 			if (separator != NULL)
 			{
 				j = 0;
-				while(*(separator + j) != '\0')
-				{
-					printf("%c", *(separator + j));
-					j++;
-				}
+				/* print all characters in separator */
+				while (*(separator + j) != '\0')
+					printf("%c", *(separator + j++));
 			}
 		}
 	}
+	/* jump to next line */
 	printf("\n");
 
 	va_end(ap);
