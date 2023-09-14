@@ -7,8 +7,9 @@
  * @n: number of integers
  * @...: ellipsis to receive an indefinite number of arguments
  *
- * Description: function receives a first argument to be the number of arguments
- * and adds them one after the other and returns the result.
+ * Description: function receives a first argument to be the
+ * number of arguments and adds them one after the other
+ * and returns the result.
  * Return: sum.
  */
 int sum_them_all(const unsigned int n, ...)
