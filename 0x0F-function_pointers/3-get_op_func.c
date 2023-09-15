@@ -11,6 +11,7 @@
  */
 int (*get_op_func(char *s))(int, int)
 {
+	/* custom structure variable, op_t array */
 	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
@@ -21,11 +22,14 @@ int (*get_op_func(char *s))(int, int)
 	};
 	int i;
 
+	/* check s for NULL & check if s has only one character */
 	if (s != NULL && s[1] == '\0')
 	{
 		i = 0;
+		/* compare s to operators for a match */
 		while (ops[i].op != NULL && *(ops[i].op) != *s)
 			i++;
+		/* pass match index into correspondng function */
 		return (ops[i].f);
 	}
 
