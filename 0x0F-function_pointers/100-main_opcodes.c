@@ -18,6 +18,10 @@ int main(int argc, char *argv[])
 
 	bytes = atoi(argv[1]);
 	executable = argv[0];
+	if (bytes < 0)
+	{
+		printf("Error\n");
+		return (2);
 	if (argc == 2)
 	{
 		char command[256];
@@ -51,7 +55,7 @@ int main(int argc, char *argv[])
 	else
 	{
 		printf("Error\n");
-		exit(2);
+		return (2);
 	}
 
 	return (0);
