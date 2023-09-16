@@ -27,7 +27,6 @@ void print_opcodes(const char *filename, int num_bytes)
 		printf("%02x ", buffer);
 		bytes_read++;
 	}
-	printf("/n");
 	fclose(file);
 }
 /**
