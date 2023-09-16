@@ -45,8 +45,8 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (2);
 	}
-	int bytes = atoi(argv[2]);
-	char *executable = argv[1];
+	int bytes = atoi(argv[1]);
+	char *executable = argv[0];
 
 	if (bytes < 0)
 	{
