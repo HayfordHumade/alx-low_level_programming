@@ -1,8 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "function_pointers.h"
-#include <string.h>
-#include <ctype.h>
+/**
+ * print_opcodes - prints opcodes in hexadecimal lowercase
+ * @filename: program
+ * @num_bytes: number of bytes
+ *
+ * Description: prints opcodes in hex lowercase
+ * Return: nothing.
+ */
+void print_opcodes(const char *filename, int num_bytes)
+{
+	FILE *file = fopen(filename, "rb");
+
+	if (file == NULL)
+	{
+		perror("Error opening file");
+		return;
+	}
+	unsigned char buffer;
+	int bytes_read = 0;
+
+	while (bytes_read < num_bytes && fread(&buffer, sizeof(buffer), 1, file) == 1)
+	{
+		/* Convert the opcode to lowercase and print it. */
+		printf("%02x ", buffer);
+		bytes_read++;
+	}
+	fclose(file);
+}
 /**
  * main - runs it all
  * @argc: number of arguments
@@ -13,50 +39,20 @@
  */
 int main(int argc, char *argv[])
 {
-	int bytes;
-	char *executable;
+	if (argc != 2)
+	{
+		printf("Error\n");
+		return (2);
+	}
+	int bytes = atoi(argv[2]);
+	char *executable = argv[1];
 
-	bytes = atoi(argv[1]);
-	executable = argv[0];
 	if (bytes < 0)
 	{
 		printf("Error\n");
 		return (2);
-	if (argc == 2)
-	{
-		char command[256];
-		snprintf(command, sizeof(command), "objdump -d -
-				j.text -M intel %s | grep '<main>:", executable);
-		FILE *pipe = popen(command, "r");
-		if (!pipe)
-		{
-			perror("popen");
-			return (3);
-		}
-
-		char buffer[128];
-		int bytes_printed = 0;
-
-		while (fgets(buffer, sizeof(buffer), pipe))
-		{
-			for (int i = 0; buffer[i]; i++)
-			{
-				char c = tolower(buffer[i]);
-				putchar(c);
-				bytes_printed++;
-				if (bytes_printed == number of bytes)
-					break;
-			}
-			if (bytes_printed == bytes)
-				break;
-		}
-		pclose(pipe);
 	}
-	else
-	{
-		printf("Error\n");
-		return (2);
-	}
+	print_opcodes(executable, bytes);
 
 	return (0);
 }
