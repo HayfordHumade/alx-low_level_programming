@@ -25,7 +25,7 @@ void print_opcodes(const char *filename, int num_bytes)
 	{
 		/* Convert the opcode to lowercase and print it. */
 		printf("%02x", buffer);
-		if (bytes_read < (numbytes - 1))
+		if (bytes_read < (num_bytes - 1))
 			printf(" ");
 		bytes_read++;
 	}
