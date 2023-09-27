@@ -10,13 +10,18 @@
  */
 void free_listint(listint_t *head)
 {
+	/* declare a listint_t pointer, temp */
 	listint_t *temp;
 
 	temp = head;
+	/* check temp for NULL */
 	while (temp != NULL)
 	{
+		/* assign head to next node */
 		head = head->next;
+		/* free temp */
 		free(temp);
+		/* reassign temp to head */
 		temp = head;
 	}
 }
