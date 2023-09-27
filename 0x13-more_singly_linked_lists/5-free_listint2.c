@@ -12,12 +12,17 @@ void free_listint2(listint_t **head)
 {
 	listint_t *new_head, *temp;
 
+	/* assign head to new_head */
 	new_head = *head;
 	while (new_head != NULL)
 	{
+		/* store new head node in temp */
 		temp = new_head;
+		/* set new head to point to next node */
 		new_head = new_head->next;
+		/* free new head node */
 		free(temp);
 	}
-	free(new_head);
+	/* always set the head of a linked list to NULL after freeing */
+	*head = NULL;
 }
