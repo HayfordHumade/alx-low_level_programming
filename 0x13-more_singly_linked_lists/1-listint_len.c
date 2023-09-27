@@ -14,7 +14,7 @@ size_t listint_len(const listint_t *h)
 	const list_t *temp;
 	/* declare variable to hold number of nodes */
 	size_t num;
-	
+
 	/* assign it h to temp */
 	temp = h;
 	num = 0;
