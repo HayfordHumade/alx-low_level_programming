@@ -12,6 +12,8 @@ void free_listint2(listint_t **head)
 {
 	listint_t *new_head, *temp;
 
+	if (*head == NULL)
+		return;
 	/* assign head to new_head */
 	new_head = *head;
 	while (new_head != NULL)
