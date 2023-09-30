@@ -7,3 +7,5 @@ This directory contains task files in Bit manipulation in relation to my SE jour
 
 1. 1-print_binary.c: &nbsp; returns the value of a bit at a given index
    - Prototype: int get_bit(unsigned long int n, unsigned int index);
+
+2. 2-
