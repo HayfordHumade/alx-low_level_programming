@@ -11,3 +11,6 @@ This directory contains more task files on singly linked lists.
 
 2. 2-add_nodeint.c: adds a new node at the beginning of a listint_t list.
    - Prototype: `listint_t *add_nodeint(listint_t **head, const int n);`
+
+3. 3-add_nodeint_end.c: &nbsp; adds a new node at the end of a listint_t list
+   - Prototype: &nbsp; `listint_t *add_nodeint_end(listint_t **head, const int n);`
