@@ -44,7 +44,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	/* write to standard output */
 	bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
 	/* check for the right number of bytes written */
-	if (bytes_written == -1 || bytes_written != bytes_read)
+	if (bytes_written == -1 || bytes_written != (ssize_t)letters)
 	{
 		free(buffer);
 		close(fd);
