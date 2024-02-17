@@ -13,37 +13,45 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd = open(filename, O_RDONLY);
-	ssize_t bytes_read, bytes_written, total_bytes_written = 0;
-	char buffer[1024];
+	int fd;
+	ssize_t bytes_read, bytes_written;
+	char *buffer;
 
+	/* check filename for NULL */
 	if (filename == NULL)
 		return (0);
+	/* create file descriptor for opening file with Read Only */
+	fd = open(filename, O_RDONLY);
+	/* check file descriptor for error */
 	if (fd == -1)
 		return (0);
-
-	while (letters > 0)
-		bytes_read = read(fd, buffer, BUFFER_SIZE);
-
+	/* allocate memory for the buffer where the read data will be stored */
+	buffer = (char *)malloc(letters + 1);
+	/* check buffer for NULL */
+	if (buffer == NULL)
+		return (0);
+	/* returns number of letters read */
+	bytes_read = read(fd, buffer, letters);
+	/* check bytes_read for error */
 	if (bytes_read == -1)
 	{
+		free(buffer);
 		close(fd);
 		return (0);
 	}
-	if (bytes_read == 0)
-		break;
-
-	if (bytes_read > letters)
-		bytes_read = letters;
+	/* terminate the buffer with NULL */
+	buffer[bytes_read] = '\0';
+	/* write to standard output */
 	bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
+	/* check for the right number of bytes written */
 	if (bytes_written == -1 || bytes_written != bytes_read)
 	{
+		free(buffer);
 		close(fd);
 		return (0);
 	}
-
-	total_bytes_written += bytes_written;
-	letters -= bytes_written;
-	close(fd);
-	return (total_bytes_written);
+	/* free allocated memory */
+	free(buffer);
+	/* return bytes read and written */
+	return (bytes_written);
 }
