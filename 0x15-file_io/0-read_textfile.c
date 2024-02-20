@@ -22,7 +22,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	/* create file descriptor for opening file with Read Only */
 	fd = open(filename, O_RDONLY);
-	/* check file descriptor for error */
 	if (fd == -1)
 		return (0);
 	/* allocate memory for the buffer where the read data will be stored */
@@ -32,26 +31,26 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	/* returns number of letters read */
 	bytes_read = read(fd, buffer, letters);
-	/* check bytes_read for error */
-	if (bytes_read == -1)
-	{
-		free(buffer);
+	if (bytes_read <= 0)
+	{ free(buffer);
 		close(fd);
 		return (0);
 	}
-	/* terminate the buffer with NULL */
-	buffer[bytes_read] = '\0';
-	/* write to standard output */
-	bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
+	if (bytes_read >= 1)
+	{
+		buffer[bytes_read] = '\0';
+		/* write to standard output */
+		bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
+	}
 	/* check for the right number of bytes written */
-	if (bytes_written == -1 || bytes_written != (ssize_t)letters)
+	if (bytes_written == -1 || bytes_read != bytes_written)
 	{
 		free(buffer);
 		close(fd);
 		return (0);
 	}
-	/* free allocated memory */
 	free(buffer);
-	/* return bytes read and written */
+	close(fd);
+
 	return (bytes_written);
 }
